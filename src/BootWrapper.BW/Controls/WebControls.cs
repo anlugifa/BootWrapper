@@ -720,19 +720,16 @@ namespace BootWrapper.BW.Controls
             
         }
 
-        public static MvcHtmlString FWButtonSubmit(this HtmlHelper htmlHelper, ButtonSize size, ButtonAction actionStyle, ButtonColor color, string id, string text, bool translate = false, bool disabled = false, object htmlAttributes = null)
+        public static MvcButton BWButtonSubmit(this HtmlHelper htmlHelper, string id)
         {
-            var translated = translate ? htmlHelper.BWGetLocalString(id, text) : text;
+            return new MvcButton(htmlHelper.ViewContext);
+        }
 
-            var tag = new TagBuilder("button");
-            tag.GenerateId(id);
-            tag.MergeAttributes(AttributesHelper.MergeClassAttributes(
-                String.Format("btn {0} {1}{2}", GetStyleClass(color), GetStyleClass(size), disabled ? " hidden" : ""), 
-                htmlAttributes));
-            tag.MergeAttribute("type", "submit");
-            tag.InnerHtml = String.Format("<span class='{0}'></span> {1}\r\n", GetStyleClass(actionStyle), translated);
-
-            return new MvcHtmlString(tag.ToString(TagRenderMode.Normal));
+        public static MvcHtmlString BWButtonSubmit(this HtmlHelper htmlHelper, ButtonSize size, ButtonAction actionStyle, ButtonColor color, string id, string text, bool translate = false, bool disabled = false, object htmlAttributes = null)
+        {
+            var translated = translate ? htmlHelper.BWGetLocalString(id, text) : text;                        
+            var tag = new MvcButton(htmlHelper.ViewContext).SetId(id).Set(size).Set(actionStyle).Set(color).Attrib(htmlAttributes);
+            return tag.Button(translated, "submit");
         }
 
         #region Remove
@@ -821,15 +818,15 @@ namespace BootWrapper.BW.Controls
 
         public static MvcHtmlString FWBtnEditAjax(this HtmlHelper htmlHelper, bool disabled = false)
         {
-            return FWButtonSubmit(htmlHelper, ButtonSize.Default, ButtonAction.Edit, ButtonColor.Blue, "btn-edit", "Editar", disabled: disabled);
+            return BWButtonSubmit(htmlHelper, ButtonSize.Default, ButtonAction.Edit, ButtonColor.Blue, "btn-edit", "Editar", disabled: disabled);
         }
 
         public static MvcHtmlString FWBtnSaveAjax(this HtmlHelper htmlHelper, bool disabled = false)
         {
-            return FWButtonSubmit(htmlHelper, ButtonSize.Default, ButtonAction.Save, ButtonColor.Green, "btn-save", "Salvar", disabled: disabled);
+            return BWButtonSubmit(htmlHelper, ButtonSize.Default, ButtonAction.Save, ButtonColor.Green, "btn-save", "Salvar", disabled: disabled);
         }
 
-        public static MvcHtmlString FWBtnBack(this HtmlHelper htmlHelper, string url)
+        public static MvcHtmlString BWBtnBack(this HtmlHelper htmlHelper, string url)
         {
             return String.IsNullOrEmpty(url)
                 ? new MvcHtmlString("")

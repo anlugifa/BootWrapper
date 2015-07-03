@@ -16,3 +16,4 @@ D:\Development\GitHub\BootWrapper\src\BootWrapper.BW\bin\Debug\System.Web.WebPag
 D:\Development\GitHub\BootWrapper\src\BootWrapper.BW\bin\Debug\System.Web.WebPages.Razor.xml
 D:\Development\GitHub\BootWrapper\src\BootWrapper.BW\obj\Debug\BootWrapper.BW.dll
 D:\Development\GitHub\BootWrapper\src\BootWrapper.BW\obj\Debug\BootWrapper.BW.pdb
+D:\Development\GitHub\BootWrapper\src\BootWrapper.BW\obj\Debug\BootWrapper.BW.csprojResolveAssemblyReference.cache

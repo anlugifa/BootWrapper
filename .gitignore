@@ -47,3 +47,7 @@ src/BootWrapper.Mvc/bin/
 src/BootWrapper.Mvc/obj/
 src/BootWrapper.Test/bin/
 src/BootWrapper.Test/obj/
+src/BootWrapper.BW/bin/Debug/BootWrapper.BW.dll
+src/BootWrapper.BW/bin/Debug/BootWrapper.BW.dll
+src/BootWrapper.Mvc/bin/Debug/BootWrapper.Mvc.pdb
+src/BootWrapper.BW/obj/Debug/BootWrapper.BW.pdb
