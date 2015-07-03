@@ -60,7 +60,7 @@ Dentro do arquivo Views\Shared\web.config, adicione o namespace dos controles.
 ## Exemplos
 - Painel
 
-```
+```ASP
 @using (Html.BWBeginPanel("Título do Painel", PanelColor.Default, new { @class = "col-lg-12" }))
 {
 // body
@@ -73,7 +73,7 @@ Dentro do arquivo Views\Shared\web.config, adicione o namespace dos controles.
 ```
 
 - Form
-```
+```ASP
 @using (Html.BWBeginFormEdit("frmEdit", "Save", url))
 {
     @Html.AntiForgeryToken()
