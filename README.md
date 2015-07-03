@@ -73,33 +73,38 @@ Dentro do arquivo Views\Shared\web.config, adicione o namespace dos controles.
 
 - Form
 ```
-@using (Html.FWBeginFormEdit("frmEdit", "Save", url))
+@using (Html.BWBeginFormEdit("frmEdit", "Save", url))
 {
     @Html.AntiForgeryToken()
-    @Html.FWHiddenFor(model => model.Entity.Id)
+    @Html.BWHiddenFor(model => model.Id)
     
-    using (Html.FWBeginControl())
+    using (Html.BWBeginControl())
     {
-        @Html.FWLabelFor(model => model.Login)
-        @Html.FWTextBoxFor(model => model.Login)
+        @Html.BWLabelFor(model => model.Login)
+        @Html.BWTextBoxFor(model => model.Login)
     }
 
     using (Html.FWBeginControl())
     {
-        @Html.FWLabelFor(model => model.Nome)
-        @Html.FWTextBoxFor(model => model.Nome)
+        @Html.BWLabelFor(model => model.Nome)
+        @Html.BWTextBoxFor(model => model.Nome)
     }
 
     using (Html.FWBeginControl())
     {
-        @Html.FWLabelFor(model => model.Ativo)
-        @Html.FWCheckBoxFor(model => model.Ativo)
+        @Html.BWLabelFor(model => model.Ativo)
+        @Html.BWCheckBoxFor(model => model.Ativo)
     }
     
     using (Html.FWBeginControl())
     {
-        @Html.FWLabelFor(model => model.Entity.Senha)
-        @Html.FWPasswordFor(model => model.Entity.Senha)
+        @Html.BWLabelFor(model => model.Entity.Senha)
+        @Html.BWPasswordFor(model => model.Entity.Senha)
+    }
+    
+    using (Html.BWBeginControl("actions", new { @class = "form-actions" }))
+    {
+        @Html.BWButtonSubmit("btn-save").Set(ButtonSize.Large).Set(ButtonAction.Save).Set(ButtonColor.Green).Attrib(new { style = "margin-top:20px;" }).Button("Salvar", "submit");
     }
 }
 ```
