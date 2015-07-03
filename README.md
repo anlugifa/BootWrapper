@@ -52,6 +52,7 @@ Dentro do arquivo Views\Shared\web.config, adicione o namespace dos controles.
   * BootWrapper.BW.Controls.PanelColor
   * BootWrapper.BW.Controls.ButtonColor
   * BootWrapper.BW.Controls.ButtonAction
+  * BootWrapper.BW.Controls.ButtonSize
 
 - Classes para geração das tags se encontram em *BootWrapper.BW.Controls.UI*
 - Os métodos estendidos do HtmlHelper são declarados na classe *BootWrapper.BW.Controls.WebControls*
