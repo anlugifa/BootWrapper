@@ -74,7 +74,7 @@ Dentro do arquivo Views\Shared\web.config, adicione o namespace dos controles.
 
 - Form
 ```ASP
-@using (Html.BWBeginFormEdit("frmEdit", "Save", url))
+@using (Html.BWBeginFormEdit("frmEdit", "actionName", "controllerName"))
 {
     @Html.AntiForgeryToken()
     @Html.BWHiddenFor(model => model.Id)
