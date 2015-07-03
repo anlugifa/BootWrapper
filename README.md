@@ -42,6 +42,11 @@ Todos os componentes podem ser utilizados nas views através da nomenclatura.
           $.bwStartBootWrapper();
       });
 ```
+6 Adicione o Namespace para utilziação das tags
+Dentro do arquivo Views\Shared\web.config, adicione o namespace dos controles.
+```xml
+<add namespace="BootWrapper.BW.Controls"/>
+``` 
 ## Classes de/para  Bootstrap 
 - Algumas Enumerations dentro da biblioteca tem a função de fazer a tradução para as classes do bootstrap.
   * BootWrapper.BW.Controls.PanelColor
@@ -63,5 +68,38 @@ Todos os componentes podem ser utilizados nas views através da nomenclatura.
 @using (Html.BWBeginPanel("pnl-id", "Título","fa fa-bars" ,PanelColor.Default, new { @class = "col-lg-12" }))
 {
 // body
+}
+```
+
+- Form
+```
+@using (Html.FWBeginFormEdit("frmEdit", "Save", url))
+{
+    @Html.AntiForgeryToken()
+    @Html.FWHiddenFor(model => model.Entity.Id)
+    
+    using (Html.FWBeginControl())
+    {
+        @Html.FWLabelFor(model => model.Login)
+        @Html.FWTextBoxFor(model => model.Login)
+    }
+
+    using (Html.FWBeginControl())
+    {
+        @Html.FWLabelFor(model => model.Nome)
+        @Html.FWTextBoxFor(model => model.Nome)
+    }
+
+    using (Html.FWBeginControl())
+    {
+        @Html.FWLabelFor(model => model.Ativo)
+        @Html.FWCheckBoxFor(model => model.Ativo)
+    }
+    
+    using (Html.FWBeginControl())
+    {
+        @Html.FWLabelFor(model => model.Entity.Senha)
+        @Html.FWPasswordFor(model => model.Entity.Senha)
+    }
 }
 ```
